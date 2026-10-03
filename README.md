@@ -51,6 +51,11 @@ ida/vuelta en ambas: 1.1102230246251565e-16; cobertura de 1 a 4. Mayor media
 absoluta seleccionada: 6.904199434387692e-16. Ver `comprobaciones.json` de cada
 paquete para evidencia y entorno de origen. Esto verifica preparación, no denoising.
 
+También ejecutado en Kaggle CPU mediante Save & Run All: versión 1, Successful,
+runtime reportado 28 s, mismos valores de control. [Notebook privado](https://www.kaggle.com/code/sarahvasquez97/01-datos?scriptVersionId=354823890)
+y [dataset privado v1](https://www.kaggle.com/datasets/sarahvasquez97/ksvd-dani-datos-v1).
+Se utilizaron las bibliotecas existentes en Kaggle, sin reinstalar ni actualizar.
+
 Ver [colaboración](docs/colaboracion.md), [contrato](docs/contrato.md) y
 [estado de plataformas](docs/estado_plataformas.md).
 
