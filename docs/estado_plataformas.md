@@ -2,6 +2,8 @@
 
 - GitHub: identidad SarahVasquezM comprobada por API; repositorio privado creado:
   https://github.com/SarahVasquezM/ksvd-image-denoising
+- Código y documentación subidos a main; commit funcional dff9689 confirmado
+  tanto localmente como por la API remota.
 - Kaggle: identidad sarahvasquez97 comprobada en configuración mediante el correo
   indicado por Dani. Carga en preparación; ejecución remota todavía no confirmada.
 - Local: siete pruebas aprobadas, notebook ejecutado completo con kernel nuevo,
