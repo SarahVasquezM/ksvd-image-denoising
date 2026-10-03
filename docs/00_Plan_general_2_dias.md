@@ -35,18 +35,18 @@ La figura principal usa T0=4, fijado antes de ejecutar. El barrido completo se m
 
 | Persona | Único bloque de responsabilidad | Recibe | Entrega a | Límite |
 |---|---|---|---|---|
-| 1: Dani | Kaggle, datos, extracción/ensamblado y contrato comprobado | Este plan | 2, 3 y 4 | Día 1, 12:00 |
-| 2 | OMP, K-SVD y entrenamiento | Paquete de Dani | 3 y 4 | Día 1, 17:00 |
+| 1: Sarah | Kaggle, datos, extracción/ensamblado y contrato comprobado | Este plan | 2, 3 y 4 | Día 1, 12:00 |
+| 2 | OMP, K-SVD y entrenamiento | Paquete de Sarah | 3 y 4 | Día 1, 17:00 |
 | 3 | Ruido, reconstrucciones, métricas e interpretación | Paquetes 1 y 2 | 4 | Día 2, 12:00 |
 | 4 | Integración final, figuras, reporte y presentación | Entregas anteriores | Equipo | Día 2, 17:00 |
 
-Estimación de trabajo individual enfocado, además de lectura y ensayo: Dani 4–5 h; persona 2 5–6 h; persona 3 4–5 h; persona 4 5–6 h. Son presupuestos, no mediciones ni garantías. El entrenamiento puede requerir espera adicional. La persona 4 recibe texto técnico listo de las otras tres y no redacta todo desde cero.
+Estimación de trabajo individual enfocado, además de lectura y ensayo: Sarah 4–5 h; persona 2 5–6 h; persona 3 4–5 h; persona 4 5–6 h. Son presupuestos, no mediciones ni garantías. El entrenamiento puede requerir espera adicional. La persona 4 recibe texto técnico listo de las otras tres y no redacta todo desde cero.
 
 ## Cronograma
 
 ### Día 1
 
-| Hora | Dani | Persona 2 | Persona 3 | Persona 4 |
+| Hora | Sarah | Persona 2 | Persona 3 | Persona 4 |
 |---|---|---|---|---|
 | 08:30–09:15 | Todos: leer objetivo y fundamentos, acordar contratos y comprobar cuentas |
 | 09:15–11:45 | Kaggle, imágenes, parches y pruebas | Desarrollar K-SVD sobre una matriz sintética 64×200 | Preparar ruido, métricas y ensamblado usando la API acordada y ejemplos sintéticos | Estructura del notebook, reporte y diapositivas; fundamentos |
@@ -67,13 +67,13 @@ Estimación de trabajo individual enfocado, además de lectura y ensayo: Dani 4�
 | 17:00–18:00 | Todos: revisar afirmaciones, ensayar 13 min y comprobar respaldo descargado. |
 | 18:00–19:00 | Margen para un bloqueo real; no nuevas funciones. |
 
-La cadena de datos real es Dani → 2 → 3 → 4. La escritura de código, los fundamentos y la estructura documental sí pueden prepararse en paralelo gracias a los contratos. No es necesario que una persona termine todo para que otra empiece a pensar o programar.
+La cadena de datos real es Sarah → 2 → 3 → 4. La escritura de código, los fundamentos y la estructura documental sí pueden prepararse en paralelo gracias a los contratos. No es necesario que una persona termine todo para que otra empiece a pensar o programar.
 
 ## Contrato técnico obligatorio
 
 Todas las matrices numéricas se guardan en float64, sin NaN ni infinito; las posiciones son enteras. `Z` contiene señales por columnas. No cambiar a señales por filas sin un adaptador explícito.
 
-### Módulo de Dani: `preprocesamiento.py`
+### Módulo de Sarah: `preprocesamiento.py`
 
 - `extract_patches(image, patch_size=8, stride=4) -> (Z, means, positions)`.
 - `Z`: (64,N), parches centrados; `means`: (N,); `positions`: (N,2), fila y columna superior izquierda.
@@ -136,9 +136,9 @@ Si K-SVD no funciona: reparar el núcleo o comunicar al profesor que se propone 
 
 Tres figuras: original/ruidosa/reconstruida limpia/reconstruida ruidosa (T0=4); mosaico del diccionario final; PSNR frente a máximo de átomos por parche con curvas limpia y ruidosa y referencia ruidosa horizontal. Acompañar tabla de siete filas, o tabla de tres si se activó contingencia.
 
-Reporte máximo 5 páginas con referencias: objetivo/fundamento 0.75; datos 0.75; proceso 1.5; resultados/análisis 1.5; cierre/referencias 0.5. Cada autor entrega su texto: Dani datos y objetivo provisional; 2 método; 3 resultados y limitaciones; 4 integra fundamento, conclusiones y formato.
+Reporte máximo 5 páginas con referencias: objetivo/fundamento 0.75; datos 0.75; proceso 1.5; resultados/análisis 1.5; cierre/referencias 0.5. Cada autor entrega su texto: Sarah datos y objetivo provisional; 2 método; 3 resultados y limitaciones; 4 integra fundamento, conclusiones y formato.
 
-Presentación de 8 diapositivas, 13 min: 1–2 objetivo/datos (Dani, 3 min); 3–4 representación/K-SVD (2, 4 min); 5–6 experimentos/resultados (3, 3 min); 7–8 discusión/conclusiones (4, 3 min). Reservar 2 min bajo el máximo de 15.
+Presentación de 8 diapositivas, 13 min: 1–2 objetivo/datos (Sarah, 3 min); 3–4 representación/K-SVD (2, 4 min); 5–6 experimentos/resultados (3, 3 min); 7–8 discusión/conclusiones (4, 3 min). Reservar 2 min bajo el máximo de 15.
 
 Aceptar la entrega cuando: hay código K-SVD ejecutado, modelo guardado, original y reconstrucciones, métricas reales, archivos reproducibles, reporte ≤5 páginas y exposición ensayada. Una mejora limitada o un resultado negativo también puede analizarse honestamente.
 
