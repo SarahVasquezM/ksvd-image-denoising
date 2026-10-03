@@ -1,7 +1,7 @@
 # K-SVD: datos y parches
 
 Proyecto académico de cuatro integrantes. Este repositorio contiene la entrega
-comprobada de **Dani (integrante 1)**: preparación de imágenes, extracción y
+comprobada de **Sarah (integrante 1)**: preparación de imágenes, extracción y
 ensamblado de parches. No contiene todavía modelo, entrenamiento ni resultados
 de denoising. Objetivo del equipo: estudiar reconstrucción dispersa y eliminación
 de ruido con K-SVD; adaptación didáctica, no réplica completa del artículo.
@@ -29,7 +29,7 @@ antes de regenerar una versión aceptada.
 
 | Integrante | Bloque | Fuente/entrega |
 |---|---|---|
-| Dani (1) | Entorno, imágenes, parches | `src/preprocesamiento.py`, `notebooks/01_datos.ipynb` |
+| Sarah (1) | Entorno, imágenes, parches | `src/preprocesamiento.py`, `notebooks/01_datos.ipynb` |
 | 2 | OMP, K-SVD, entrenamiento | Futuro `modelo.py`, `02_modelo.ipynb`, modelo/historial |
 | 3 | Ruido, reconstrucciones, métricas | Futuro `evaluacion.py`, `03_experimentos.ipynb` |
 | 4 | Integración, reporte, presentación | Futuro notebook final y documentos |
@@ -53,7 +53,7 @@ paquete para evidencia y entorno de origen. Esto verifica preparación, no denoi
 
 También ejecutado en Kaggle CPU mediante Save & Run All: versión 1, Successful,
 runtime reportado 28 s, mismos valores de control. [Notebook privado](https://www.kaggle.com/code/sarahvasquez97/01-datos?scriptVersionId=354823890)
-y [dataset privado v1](https://www.kaggle.com/datasets/sarahvasquez97/ksvd-dani-datos-v1).
+y [dataset privado v1](https://www.kaggle.com/datasets/sarahvasquez97/ksvd-Sarah-datos-v1).
 Se utilizaron las bibliotecas existentes en Kaggle, sin reinstalar ni actualizar.
 
 Ver [colaboración](docs/colaboracion.md), [contrato](docs/contrato.md) y
