@@ -19,6 +19,11 @@ dataset por separado, verificando cada diálogo y destinatario. No asumir permis
 heredados ni que conocer una URL privada concede acceso. No se enviaron invitaciones.
 Se necesitan usuarios exactos y confirmación de destinatarios/permisos por Dani.
 
+Verificación de la interfaz actual: notebook tiene selector Privado/Público y
+búsqueda de personas/grupos. Dataset tiene su propia sección Editar colaboradores
+con búsqueda de usuarios/grupos. Ambos muestran a sarahvasquez97 como propietaria;
+no se introdujeron destinatarios. Esto confirma controles separados, no invitaciones.
+
 ## Git
 
 `main` es la versión funcional. Ramas sugeridas: `codex/dani-datos`,
