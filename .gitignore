@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+artifacts/
+tmp/
+.env
+.env.*
+!.env.example
+kaggle.json
+*token*
+*.pem
+*.key
+.kaggle/
+.jupyter/
