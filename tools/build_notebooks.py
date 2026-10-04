@@ -12,7 +12,7 @@ import os, sys, subprocess
 from pathlib import Path
 
 REPO_URL = "https://github.com/SarahVasquezM/ksvd-image-denoising.git"
-REPO_REF = os.environ.get("KSVD_REPO_REF", "codex/auditoria-final")
+REPO_REF = os.environ.get("KSVD_REPO_REF", "main")
 
 def find_root():
     for p in [Path.cwd(), *Path.cwd().parents]:

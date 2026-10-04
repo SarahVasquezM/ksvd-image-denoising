@@ -11,15 +11,15 @@ Adaptación didáctica pequeña de K-SVD para:
 No es una réplica de los artículos originales y no pretende superar el estado del arte.
 
 ## Reparto original en cuatro bloques
-El trabajo se diseñó para cuatro integrantes. En esta entrega un solo desarrollador lo implementó
-completo, pero se conserva la división para que cada integrante pueda revisar su bloque por separado.
+El trabajo se divide en cuatro integrantes: Sarah prepara datos y parches; Alan (Edgar) implementa
+OMP, K-SVD y entrenamiento; Sergio realiza experimentos y métricas; Areli integra reporte y presentación.
 
 | Carpeta | Bloque | Entradas | Productos |
 |---|---|---|---|
 | `01_datos/` | Datos y parches | `skimage.data` | `datos.npz`, `config.json`, `versiones.txt`, `nota_datos.md` |
 | `02_modelo/` | OMP + K-SVD | `datos.npz`, `config.json` | `modelo.npz`, `historial.csv`, `config_efectiva.json`, `nota_metodo.md` |
 | `03_evaluacion/` | Experimentos | datos + modelo + config | `resultados.csv`, `reconstrucciones.npz`, `nota_resultados.md` |
-| `04_final/` | Integración | todo lo anterior | figuras finales, reporte, presentación, `README_integracion.md` |
+| `04_final/` | Integración | todo lo anterior | figuras finales, artículo IEEE y presentación editable |
 
 Los bloques se comunican **sólo por archivos** (contrato v1.0 en `config.json`). La implementación
 es **única** y vive en `src/`; las carpetas contienen wrappers, notebooks, notas y productos.
@@ -42,5 +42,5 @@ es **única** y vive en `src/`; las carpetas contienen wrappers, notebooks, nota
 * Contingencia de tiempo sólo tras medir (ver `incidencias.md`).
 
 ## Estado
-Completado: los cuatro bloques se ejecutaron, los productos están versionados, 31+ pruebas pasan y
-la auditoría desde un entorno limpio se documenta en `reproduccion.md`.
+Completado: los cuatro bloques se ejecutaron, los productos están versionados, 32 pruebas pasan y
+la validación desde un entorno limpio se documenta en `reproduccion.md`.

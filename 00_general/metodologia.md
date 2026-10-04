@@ -25,14 +25,14 @@
 1. Datos (bloque 1): ver `01_datos/nota_datos.md`.
 2. Modelo (bloque 2): ver `02_modelo/nota_metodo.md`.
 3. Evaluación (bloque 3): ver `03_evaluacion/nota_resultados.md`.
-4. Integración (bloque 4): verificación cruzada y reporte; ver `04_final/README_integracion.md`.
+4. Integración (bloque 4): verificación cruzada, artículo IEEE y presentación; ver `04_final/reporte/reporte.tex`.
 
 ## Verificación
 * Pruebas unitarias y de integración en `tests/` (contratos, casos borde, prueba de rango 1 de la
   SVD, reproducción completa del pipeline en un directorio temporal).
 * Comprobaciones obligatorias dentro del propio código (ida y vuelta < 1e-10, métricas de control,
   validación del modelo, coherencia entre bloques); cualquier fallo detiene la ejecución.
-* Auditoría final desde un entorno limpio (ver `reproduccion.md`).
+* Validación final desde un entorno limpio (ver `reproduccion.md`).
 
 ## Principios de reporte
 * Ninguna cifra se escribe antes de ejecutar el experimento; reporte y presentación leen los números

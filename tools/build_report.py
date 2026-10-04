@@ -1,6 +1,7 @@
-"""Genera el reporte (LaTeX -> PDF, más versión Markdown) y la presentación (PDF de diapositivas
-con matplotlib, más guion Markdown) a partir de los archivos de resultados. Ningún número del
-reporte se escribe a mano: todos se leen de 01_datos/, 02_modelo/ y 03_evaluacion/.
+"""Compila el reporte LaTeX final y genera apoyos Markdown/PDF a partir de los resultados.
+
+`04_final/reporte/reporte.tex` es la fuente académica autoritativa y no se sobrescribe.
+La función `build_tex` se conserva sólo como respaldo para una copia que no incluya la fuente.
 
 Uso:  python tools/build_report.py
 """
@@ -390,7 +391,9 @@ def main():
     cfg, eff, meta, hist, res, vers = load()
     F = facts(cfg, eff, meta, hist, res)
     REP.mkdir(parents=True, exist_ok=True)
-    (REP / "reporte.tex").write_text(build_tex(cfg, eff, meta, hist, res, vers, F), encoding="utf-8")
+    tex_path = REP / "reporte.tex"
+    if not tex_path.exists():
+        tex_path.write_text(build_tex(cfg, eff, meta, hist, res, vers, F), encoding="utf-8")
     (REP / "reporte.md").write_text(build_md(cfg, eff, meta, hist, res, F), encoding="utf-8")
     n = build_slides(cfg, eff, meta, hist, res, F)
     print(f"presentación: {n} diapositivas -> {(PRE / 'presentacion.pdf').relative_to(ROOT)}")

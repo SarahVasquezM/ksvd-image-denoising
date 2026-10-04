@@ -7,9 +7,10 @@ eliminar ruido (Elad y Aharon, 2006): se aprende un diccionario de 128 átomos a
 
 > No es una réplica de los artículos originales ni pretende superar el estado del arte.
 
-**Repositorio de entrega:** `SarahVasquezM/ksvd-image-denoising`, rama
-`codex/auditoria-final`. La integración parte del desarrollo completo auditado y conserva el bloque
-de datos de Sarah, sus validaciones de entrada y su evidencia privada de Kaggle.
+> **Procedencia.** Este es el mismo proyecto desarrollado en el repositorio de Alan (Edgar),
+> integrado en SarahVasquezM/ksvd-image-denoising. Se conservaron los datos y resultados
+> experimentales; únicamente se incorporaron validaciones de entrada, compatibilidad de contratos
+> y los entregables finales solicitados.
 
 ## Resultados (ejecutados; `03_evaluacion/resultados.csv`)
 
@@ -19,7 +20,7 @@ de datos de Sarah, sus validaciones de entrada y su evidencia privada de Kaggle.
 | limpia | 2 / 4 / 8 | 0.002132 / 0.001264 / 0.000719 | 26.71 / 28.98 / 31.43 | 2 / 4 / 8 |
 | ruidosa | 2 / 4 / 8 | 0.002784 / 0.002442 / 0.002730 | 25.55 / **26.12** / 25.64 | 2 / 4 / 8 |
 
-* Entrenamiento K-SVD (K = 128, 1500 parches, 8 iteraciones, T = 4): 2.09 s en la última auditoría local, **sin
+* Entrenamiento K-SVD (K = 128, 1500 parches, 8 iteraciones, T = 4): 2.09 s en la última ejecución local, **sin
   contingencia**; MSE de entrenamiento 9.55e-4 (`D_init`) → 3.41e-4.
 * Imagen ruidosa: mejor T0 = 4, +4.03 dB sobre la entrada. Imagen limpia: el PSNR crece con T0.
 
@@ -47,7 +48,7 @@ su nota técnica, sus productos y sus figuras. Guía de revisión por integrante
 | 1 | `01_datos/`, `src/preprocesamiento.py`, `tests/test_preprocesamiento.py` | `01_datos/nota_datos.md` |
 | 2 | `02_modelo/`, `src/modelo.py`, `tests/test_modelo.py` | `02_modelo/nota_metodo.md` |
 | 3 | `03_evaluacion/`, `src/evaluacion.py`, `tests/test_evaluacion.py` | `03_evaluacion/nota_resultados.md` |
-| 4 | `04_final/`, `src/pipeline.py`, `tools/`, `tests/test_integracion.py` | `04_final/README_integracion.md` |
+| 4 | `04_final/`, `src/pipeline.py`, `tools/`, `tests/test_integracion.py` | `04_final/reporte/reporte.tex` |
 
 ## Requisitos clave de implementación
 * OMP con `sklearn.linear_model.orthogonal_mp` (no reimplementado).
@@ -60,7 +61,7 @@ su nota técnica, sus productos y sus figuras. Guía de revisión por integrante
 python -m venv .venv && source .venv/bin/activate     # o: conda env create -f environment.yml
 pip install -r requirements.txt
 python run_all.py                  # regenera los productos de los 4 bloques (≈ 10 s)
-python tools/build_report.py       # reporte (PDF si hay pdflatex) y presentación
+python tools/build_report.py       # compila el reporte si hay un motor LaTeX disponible
 python -m pytest                   # 32 pruebas, incluye reproducción completa del pipeline
 bash tools/execute_notebooks.sh    # regenera y ejecuta los 4 notebooks
 ```
@@ -73,11 +74,10 @@ corresponden al bloque 1; el pipeline completo se verificó localmente.
 ## Documentación
 * `00_general/metodologia.md` — fundamento, qué se adapta de los artículos y qué se simplifica.
 * `00_general/arquitectura.md` — módulos, contrato de archivos, decisiones técnicas.
-* `00_general/reproduccion.md` — instrucciones y auditoría desde entorno limpio.
+* `00_general/reproduccion.md` — instrucciones de reproducción desde entorno limpio.
 * `00_general/incidencias.md` — problemas encontrados y cómo se resolvieron.
-* `AUDITORIA.md` — revisión técnica, correcciones y alcance de la evidencia.
-* `04_final/reporte_final.docx` / `reporte_final.pdf` y
-  `04_final/presentacion_final.pptx` / `presentacion_final.pdf`.
+* `04_final/reporte/reporte.tex` / `reporte.pdf` — artículo IEEE de cinco páginas.
+* `04_final/presentacion_final.pptx` — presentación editable con notas y responsables.
 
 ## Referencias
 * M. Aharon, M. Elad, A. Bruckstein, “K-SVD: An Algorithm for Designing Overcomplete Dictionaries
