@@ -1,0 +1,17 @@
+name: ksvd
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - scikit-learn
+  - scikit-image
+  - matplotlib
+  - pandas
+  - threadpoolctl
+  - pytest
+  - nbformat
+  - nbconvert
+  - ipykernel
+  - python-docx

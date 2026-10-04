@@ -1,0 +1,61 @@
+{
+  "version_contrato": 1,
+  "contingency_level": 0,
+  "contingency_label": "configuración deseada",
+  "contingency_applied": false,
+  "overcomplete": true,
+  "attempts": [
+    {
+      "level": 0,
+      "n_atoms": 128,
+      "n_train_patches": 1500,
+      "n_iter": 8,
+      "label": "configuración deseada",
+      "status": "usado",
+      "total_s": 2.0895495000004303
+    }
+  ],
+  "time_budget_s": 3600.0,
+  "n_atoms": 128,
+  "atom_dim": 64,
+  "n_train_patches": 1500,
+  "n_iter": 8,
+  "train_sparsity": 4,
+  "seed": 43,
+  "train_indices_used": "primeras n_train_patches columnas de X_train (orden del muestreo RNG 42)",
+  "omp": "sklearn.linear_model.orthogonal_mp(n_nonzero_coefs=train_sparsity, precompute=True)",
+  "svd": "numpy.linalg.svd(E_omega, full_matrices=False)",
+  "unused_atom_policy": "reinicializar con la columna de mayor norma del residual X - D A (normalizada); conservar si todos los residuales son ~0",
+  "training_time_s": 2.0895495000004303,
+  "threadpools": [
+    {
+      "api": "blas",
+      "lib": "openblas",
+      "num_threads": 4
+    },
+    {
+      "api": "blas",
+      "lib": "openblas",
+      "num_threads": 4
+    },
+    {
+      "api": "openmp",
+      "lib": "openmp",
+      "num_threads": 4
+    }
+  ],
+  "train_mse_init_dictionary": 0.000954902109100754,
+  "train_mse_final_recoded": 0.00034132384459536715,
+  "total_reinitialized_atoms": 0,
+  "checks": {
+    "D_shape_ok": true,
+    "D_unit_norm_max_dev": 7.771561172376096e-16,
+    "D_finite": true,
+    "A_shape_ok": true,
+    "A_finite": true,
+    "max_active_per_column": 4,
+    "recon_shape_ok": true,
+    "train_mse_final": 0.00034132384459536715
+  },
+  "first_train_index": 2036
+}

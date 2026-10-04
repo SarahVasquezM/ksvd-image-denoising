@@ -1,0 +1,13 @@
+{
+  "D_shape": [
+    64,
+    128
+  ],
+  "K_matches_effective_config": true,
+  "K_matches_results": true,
+  "A_train_reproducible": true,
+  "history_rows_match_n_iter": true,
+  "test_image_matches": true,
+  "eval_sparsities_present": true,
+  "contingency_level": 0
+}

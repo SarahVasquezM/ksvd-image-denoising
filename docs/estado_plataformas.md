@@ -2,8 +2,8 @@
 
 - GitHub: identidad SarahVasquezM comprobada por API; repositorio privado creado:
   https://github.com/SarahVasquezM/ksvd-image-denoising
-- Código y documentación subidos a main; commit funcional dff9689 confirmado
-  tanto localmente como por la API remota.
+- La integración completa corresponde al mismo proyecto de Alan (Edgar), con validaciones de entrada,
+  compatibilidad de contratos y los entregables finales preparados para `main`.
 - Kaggle: identidad sarahvasquez97 comprobada en configuración mediante el correo
   indicado por Dani. Dataset privado creado, versión 1, diez archivos:
   https://www.kaggle.com/datasets/sarahvasquez97/ksvd-dani-datos-v1
@@ -21,6 +21,6 @@
   local. Control constante: 0; control irregular: 1.7763568394002505e-15.
 - Local: siete pruebas aprobadas, notebook ejecutado completo con kernel nuevo,
   NPZ/JSON recargados, paquete ZIP generado y figuras inspeccionadas.
+- Integración local final: 32 pruebas aprobadas, cuatro notebooks ejecutados y pipeline completo
+  reproducido; artículo IEEE de cinco páginas y presentación editable de ocho diapositivas.
 - Invitaciones: ninguna enviada; faltan usuarios y confirmación de permisos.
-
-El estado remoto se actualizará sólo después de verificar las operaciones.

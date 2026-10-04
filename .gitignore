@@ -1,7 +1,11 @@
-.venv/
 __pycache__/
 *.py[cod]
+.pytest_cache/
 .ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+.DS_Store
 artifacts/
 tmp/
 .env
@@ -13,3 +17,12 @@ kaggle.json
 *.key
 .kaggle/
 .jupyter/
+node_modules/
+.mplconfig/
+.codex-finalizer/
+.chart-data-*/
+# auxiliares de LaTeX
+04_final/reporte/*.aux
+04_final/reporte/*.log
+04_final/reporte/*.out
+04_final/reporte/*.toc
