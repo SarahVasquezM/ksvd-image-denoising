@@ -1,9 +1,15 @@
-# Versiones verificadas localmente; en Kaggle comprobar imports antes de instalar.
-numpy==2.5.3
-scipy==1.18.1
-scikit-image==0.26.0
-scikit-learn==1.9.1
-matplotlib==3.11.2
-nbformat==5.11.1
-nbclient==0.11.0
-ipykernel==7.4.0
+# Dependencias mínimas (probadas: ver 01_datos/versiones.txt y 00_general/reproduccion.md)
+numpy>=1.24
+scipy>=1.10
+scikit-learn>=1.2
+scikit-image>=0.21
+matplotlib>=3.7
+pandas>=1.5
+threadpoolctl>=3.1
+# pruebas y notebooks
+pytest>=7
+nbformat>=5.7
+nbconvert>=7
+ipykernel>=6
+# reporte final editable
+python-docx>=1.1

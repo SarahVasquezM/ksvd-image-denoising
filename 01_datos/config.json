@@ -1,0 +1,92 @@
+{
+  "version_contrato": 1,
+  "train_image_name": "camera",
+  "test_image_name": "coins",
+  "train_image_source": "skimage.data.camera()",
+  "test_image_source": "skimage.data.coins()",
+  "train_shape": [
+    256,
+    256
+  ],
+  "test_shape": [
+    128,
+    128
+  ],
+  "resize": {
+    "anti_aliasing": true,
+    "preserve_range": true
+  },
+  "conversion": "skimage.img_as_float64",
+  "patch_size": 8,
+  "stride": 4,
+  "patch_order": "filas y luego columnas; flatten en orden C; un parche por columna",
+  "centering": "se resta la media de cada parche (sin normalizar por la norma)",
+  "min_patch_norm": 1e-08,
+  "constant_threshold": 1e-08,
+  "n_train_patches": 1500,
+  "n_train": 1500,
+  "n_atoms": 128,
+  "atom_dim": 64,
+  "n_iter": 8,
+  "train_sparsity": 4,
+  "eval_sparsities": [
+    2,
+    4,
+    8
+  ],
+  "sigma": 0.0784313725490196,
+  "sigma_255": 20,
+  "data_range": 1.0,
+  "seeds": {
+    "data": 42,
+    "model": 43,
+    "noise": 44,
+    "sampling": 42,
+    "ksvd": 43
+  },
+  "images": {
+    "train": {
+      "name": "camera",
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "test": {
+      "name": "coins",
+      "shape": [
+        128,
+        128
+      ]
+    }
+  },
+  "dtype": "float64",
+  "flatten_order": "C",
+  "position_order": "row_column",
+  "center": true,
+  "normalize_patch": false,
+  "sample_replace": false,
+  "dimensions": {
+    "train_image": [
+      256,
+      256
+    ],
+    "test_image": [
+      128,
+      128
+    ],
+    "X_train": [
+      64,
+      1500
+    ],
+    "train_indices": [
+      1500
+    ],
+    "n_patches_train_total": 3969,
+    "n_patches_test_total": 961
+  },
+  "checks": {
+    "roundtrip_max_error_train": 1.1102230246251565e-16,
+    "roundtrip_max_error_test": 1.1102230246251565e-16
+  }
+}
