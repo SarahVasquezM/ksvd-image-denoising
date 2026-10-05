@@ -1,0 +1,19 @@
+{
+  "metric_checks": {
+    "self_mse": 0.0,
+    "self_psnr": Infinity,
+    "const_0.1_mse": 0.01,
+    "const_0.1_psnr": 20.0
+  },
+  "sigma": 0.0784313725490196,
+  "noise_seed": 44,
+  "noise_realizations": 1,
+  "noise_clipping": false,
+  "noise_empirical_std": 0.07860591954907652,
+  "reconstruction_clipping": false,
+  "reference_for_metrics": "imagen de prueba limpia (coins 128x128)",
+  "n_timing_repeats": 5,
+  "timing": "mediana de repeticiones; extracción + OMP + reensamblado",
+  "n_atoms": 128,
+  "atom_dim": 64
+}

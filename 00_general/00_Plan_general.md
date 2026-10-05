@@ -2,7 +2,8 @@
 
 ## Objetivo científico
 Adaptación didáctica pequeña de K-SVD para:
-1. aprender un diccionario disperso a partir de parches de una imagen (camera);
+1. aprender un diccionario externo con parches de `camera` y uno adaptativo con parches de la
+   observación ruidosa de `coins`;
 2. reconstruir una imagen limpia no usada en entrenamiento (coins);
 3. reconstruir una versión ruidosa de esa imagen (σ = 20/255);
 4. estudiar el efecto de la dispersión T0 ∈ {2, 4, 8};
@@ -20,6 +21,7 @@ OMP, K-SVD y entrenamiento; Sergio realiza experimentos y métricas; Areli integ
 | `02_modelo/` | OMP + K-SVD | `datos.npz`, `config.json` | `modelo.npz`, `historial.csv`, `config_efectiva.json`, `nota_metodo.md` |
 | `03_evaluacion/` | Experimentos | datos + modelo + config | `resultados.csv`, `reconstrucciones.npz`, `nota_resultados.md` |
 | `04_final/` | Integración | todo lo anterior | figuras finales, artículo IEEE y presentación editable |
+| `05_comparacion/` | Extensión adaptativa | datos + modelo externo + config | modelo adaptativo, comparación, validaciones y figuras |
 
 Los bloques se comunican **sólo por archivos** (contrato v1.0 en `config.json`). La implementación
 es **única** y vive en `src/`; las carpetas contienen wrappers, notebooks, notas y productos.
@@ -27,7 +29,7 @@ es **única** y vive en `src/`; las carpetas contienen wrappers, notebooks, nota
 ## Configuración experimental congelada
 | Parámetro | Valor |
 |---|---|
-| Entrenamiento / prueba | `camera` 256×256 / `coins` 128×128 (`img_as_float64`, `resize` con `anti_aliasing=True`, `preserve_range=True`) |
+| Entrenamiento / prueba | ruta externa: `camera` 256×256; ruta adaptativa: `coins` ruidosa 128×128; referencia: `coins` limpia |
 | Parches | 8×8, stride 4, filas→columnas, flatten C, centrados (sin normalizar) |
 | Muestreo | filtrar norma ≤ 1e-8, 1500 sin reemplazo, RNG 42 |
 | Diccionario | K = 128, átomos de dimensión 64, columnas normalizadas |
@@ -42,5 +44,5 @@ es **única** y vive en `src/`; las carpetas contienen wrappers, notebooks, nota
 * Contingencia de tiempo sólo tras medir (ver `incidencias.md`).
 
 ## Estado
-Completado: los cuatro bloques se ejecutaron, los productos están versionados, 32 pruebas pasan y
-la validación desde un entorno limpio se documenta en `reproduccion.md`.
+Completado: los cuatro bloques originales y la extensión adaptativa se ejecutaron, los productos
+están versionados, 35 pruebas pasan y la validación se documenta en `reproduccion.md`.

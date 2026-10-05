@@ -6,6 +6,7 @@ __pycache__/
 venv/
 *.egg-info/
 .DS_Store
+~$*
 artifacts/
 tmp/
 .env
@@ -21,6 +22,8 @@ node_modules/
 .mplconfig/
 .codex-finalizer/
 .chart-data-*/
+_audit_render/
+alan_full_tree.tar
 # auxiliares de LaTeX
 04_final/reporte/*.aux
 04_final/reporte/*.log
