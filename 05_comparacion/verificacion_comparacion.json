@@ -1,0 +1,11 @@
+{
+  "same_noisy_realization": true,
+  "same_eval_sparsities": true,
+  "adaptive_dictionary_shape": [
+    64,
+    128
+  ],
+  "adaptive_dictionary_unit_norm_max_dev": 9.992007221626409e-16,
+  "adaptive_training_uses_clean_reference": false,
+  "comparison_rows": 13
+}

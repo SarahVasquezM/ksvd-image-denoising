@@ -7,14 +7,16 @@ cd ksvd-image-denoising
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python run_all.py                 # bloques 1-4 (≈ 10 s en CPU)
+python run_comparative.py         # variante adaptativa + comparación de ambas rutas
 python tools/build_report.py      # compila el reporte si hay un motor LaTeX disponible
-python -m pytest                  # 32 pruebas
+python -m pytest                  # pruebas de las rutas externa y adaptativa
 bash tools/execute_notebooks.sh   # regenera y ejecuta los 4 notebooks en orden
 ```
 Con conda: `conda env create -f environment.yml && conda activate ksvd`.
 
 Bloques sueltos: `python -m src.pipeline --blocks 2 3` o `python 02_modelo/modelo.py`.
 Hilos BLAS: `python run_all.py --threads 1` (por defecto 4; `0` = sin límite).
+Comparación desde cero: `python run_comparative.py --rebuild-base`.
 
 > Si `PYTHONPATH` contiene rutas de otros proyectos (p. ej. ROS) y pytest falla al cargar plugins
 > ajenos, ejecutar `env -u PYTHONPATH python -m pytest` (ver `incidencias.md`, I-6).
@@ -63,10 +65,21 @@ matplotlib 3.7.5, pandas 1.5.3, threadpoolctl 3.1.0.
 
 | Paso | Resultado |
 |---|---|
-| `python -m pytest -q` (incluye reproducción completa del pipeline en un directorio temporal y comparación con los artefactos versionados) | **31 passed** con esas versiones; el entorno actual ejecuta 32 pruebas |
+| `python -m pytest -q` (incluye reproducción completa del pipeline en un directorio temporal y comparación con los artefactos versionados) | **31 passed** con esas versiones; la ruta original ejecutaba 32 pruebas |
 
 Advertencias observadas: avisos de parada temprana de OMP (esperados, ver I-3) y avisos de
 deprecación de `pyparsing` dentro de matplotlib 3.7 (ajenos al proyecto).
+
+### C. Extensión con diccionario adaptativo (2026-10-05)
+
+| Paso | Resultado |
+|---|---|
+| `python run_comparative.py --threads 4` | exit 0; mismo ruido y T0 en ambas rutas; diccionario adaptativo 64×128 con normas unitarias |
+| `python -m pytest -q` | **35 passed**; incluye tres pruebas nuevas de procedencia de parches, contrato adaptativo y tabla comparativa |
+| Mejor PSNR externo / adaptativo | 26.12 dB (T0=4) / 26.09 dB (T0=2) |
+
+Los tiempos se consideran evidencia de esa máquina y ejecución; MSE, PSNR, diccionarios y
+reconstrucciones se guardaron sin redondeo prematuro en `05_comparacion/`.
 
 ### Qué cubren las pruebas
 * `test_preprocesamiento.py` — formas, orden de recorrido, último inicio sin duplicados, centrado,

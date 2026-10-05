@@ -101,6 +101,16 @@ def plot_dictionaries_side_by_side(D_init, D, path, patch_size=8, n_cols=16):
     return _save(fig, path)
 
 
+def plot_dictionary_sources(D_external, D_adaptive, path, patch_size=8, n_cols=16):
+    """Compara el diccionario externo y el adaptado a la imagen ruidosa."""
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6.4))
+    _imshow(axes[0], patch_grid(D_external, patch_size, n_cols=n_cols),
+            f"Externo: camera limpia ({D_external.shape[1]} átomos)")
+    _imshow(axes[1], patch_grid(D_adaptive, patch_size, n_cols=n_cols),
+            f"Adaptativo: coins ruidosa ({D_adaptive.shape[1]} átomos)")
+    return _save(fig, path)
+
+
 def plot_training_curve(history_df, path, init_mse=None):
     fig, ax = plt.subplots(figsize=(6, 3.8))
     ax.plot(history_df["iteration"], history_df["train_mse"], marker="o", color=C_CLEAN)
@@ -193,6 +203,51 @@ def plot_activity_time(df, path):
     _sparsity_lines(axes[1], d, "reconstruction_time_s", "Tiempo (s, mediana)")
     axes[1].set_title("Tiempo de reconstrucción")
     axes[1].set_ylim(bottom=0)
+    return _save(fig, path)
+
+
+def plot_psnr_dictionary_comparison(df, path):
+    """PSNR para ambos orígenes del diccionario bajo el mismo protocolo."""
+    labels = {
+        "externo_camera_limpia": "externo (camera limpia)",
+        "adaptativo_coins_ruidosa": "adaptativo (coins ruidosa)",
+    }
+    colors = {"externo_camera_limpia": C_CLEAN, "adaptativo_coins_ruidosa": C_NOISY}
+    fig, axes = plt.subplots(1, 2, figsize=(10, 3.8), sharex=True)
+    for ax, condition, title in zip(
+        axes, ("limpia", "ruidosa"), ("Entrada limpia", "Entrada ruidosa")
+    ):
+        subset = df[df["condition"] == condition]
+        for source in labels:
+            d = subset[subset["dictionary_source"] == source].sort_values("T0")
+            ax.plot(d["T0"], d["psnr_db"], marker="o", color=colors[source], label=labels[source])
+        if condition == "ruidosa":
+            base = float(df.loc[df["condition"] == "ruidosa_sin_procesar", "psnr_db"].iloc[0])
+            ax.axhline(base, color=C_BASE, linestyle="--", linewidth=1.2,
+                       label="ruidosa sin procesar")
+        ax.set_title(title)
+        ax.set_xlabel("T0 (máx. átomos por parche)")
+        ax.set_ylabel("PSNR vs. limpia (dB)")
+        ax.set_xticks(sorted(df.loc[df["T0"] > 0, "T0"].unique()))
+        ax.legend(frameon=False, fontsize=8)
+    fig.tight_layout()
+    return _save(fig, path)
+
+
+def plot_best_dictionary_reconstructions(df, rec_external, rec_adaptive, path):
+    """Compara la mejor reconstrucción ruidosa de cada diccionario."""
+    noisy = df[df["condition"] == "ruidosa"]
+    ext = noisy[noisy["dictionary_source"] == "externo_camera_limpia"].sort_values("psnr_db").iloc[-1]
+    ada = noisy[noisy["dictionary_source"] == "adaptativo_coins_ruidosa"].sort_values("psnr_db").iloc[-1]
+    base = float(df.loc[df["condition"] == "ruidosa_sin_procesar", "psnr_db"].iloc[0])
+    fig, axes = plt.subplots(1, 4, figsize=(10.5, 3.0))
+    _imshow(axes[0], rec_external["test_image"], "Original")
+    _imshow(axes[1], rec_external["noisy_image"], f"Ruidosa\n{base:.2f} dB")
+    _imshow(axes[2], rec_external[f"rec_ruidosa_T{int(ext.T0)}"],
+            f"Externo T0={int(ext.T0)}\n{ext.psnr_db:.2f} dB")
+    _imshow(axes[3], rec_adaptive[f"rec_ruidosa_T{int(ada.T0)}"],
+            f"Adaptativo T0={int(ada.T0)}\n{ada.psnr_db:.2f} dB")
+    fig.tight_layout()
     return _save(fig, path)
 
 

@@ -1,0 +1,49 @@
+{
+  "variant": "diccionario_adaptativo_desde_imagen_ruidosa",
+  "paper_basis": "Elad y Aharon (2006), Sec. III-B: Training on the Corrupted Image",
+  "training_source": "parches centrados de coins ruidosa",
+  "same_noisy_image_used_for_training_and_denoising": true,
+  "clean_reference_used_for_training": false,
+  "clean_reference_use": "exclusivamente MSE y PSNR",
+  "noise_clipping": false,
+  "reconstruction_clipping": false,
+  "sigma": 0.0784313725490196,
+  "noise_seed": 44,
+  "noise_empirical_std": 0.07860591954907652,
+  "patch_size": 8,
+  "stride": 4,
+  "n_patches_total": 961,
+  "n_train_patches": 961,
+  "n_atoms": 128,
+  "n_iter": 8,
+  "train_sparsity": 4,
+  "eval_sparsities": [
+    2,
+    4,
+    8
+  ],
+  "model_seed": 43,
+  "training_time_s": 4.219704300005105,
+  "train_mse_init_dictionary": 0.007024854237107986,
+  "train_mse_final_recoded": 0.004359148948164536,
+  "checks": {
+    "D_shape_ok": true,
+    "D_unit_norm_max_dev": 9.992007221626409e-16,
+    "D_finite": true,
+    "A_shape_ok": true,
+    "A_finite": true,
+    "max_active_per_column": 4,
+    "recon_shape_ok": true,
+    "train_mse_final": 0.004359148948164536
+  },
+  "controlled_differences_from_external_variant": [
+    "origen de los parches de entrenamiento",
+    "número de parches disponible (todos los parches válidos de coins ruidosa)"
+  ],
+  "differences_from_full_paper_estimator": [
+    "T0 fijo en lugar de parada OMP por error dependiente de sigma",
+    "128 átomos en lugar de 256",
+    "paso 4 en lugar de todos los parches solapados",
+    "promedio de parches sin término adicional de fidelidad a la observación"
+  ]
+}

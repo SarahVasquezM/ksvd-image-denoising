@@ -15,7 +15,7 @@
 ## Qué se adapta y qué se simplifica
 | Aspecto | Elad y Aharon (2006) | Este proyecto |
 |---|---|---|
-| Entrenamiento | base de parches limpios o la propia imagen ruidosa | 1500 parches de *camera* limpia |
+| Entrenamiento | base de parches limpios o la propia imagen ruidosa | ambas rutas: 1500 parches de *camera* limpia y 961 parches de *coins* ruidosa |
 | Diccionario | 64 × 256, inicio DCT | 64 × 128, inicio con parches de datos |
 | Codificación | OMP con umbral de error | OMP con número fijo T0 ∈ {2,4,8} |
 | Reconstrucción | promedio de parches + imagen ruidosa (λ) | sólo promedio de parches |
@@ -26,6 +26,15 @@
 2. Modelo (bloque 2): ver `02_modelo/nota_metodo.md`.
 3. Evaluación (bloque 3): ver `03_evaluacion/nota_resultados.md`.
 4. Integración (bloque 4): verificación cruzada, artículo IEEE y presentación; ver `04_final/reporte/reporte.tex`.
+5. Comparación: diccionario externo frente a adaptativo con la misma observación ruidosa, T0 y
+   métricas; ver `05_comparacion/README.md`.
+
+La ruta adaptativa implementa la idea de la Sec. III-B del artículo: el diccionario se aprende de
+los parches de la imagen corrupta que se desea restaurar. Es una evaluación transductiva, por lo que
+la imagen limpia se reserva exclusivamente para medir MSE y PSNR. Para aislar el origen del
+diccionario se mantiene el protocolo reducido del proyecto; no se afirma reproducir el estimador
+completo, que usa parada OMP dependiente de sigma, 256 átomos, mayor solapamiento y un término de
+fidelidad a la observación.
 
 ## Verificación
 * Pruebas unitarias y de integración en `tests/` (contratos, casos borde, prueba de rango 1 de la
